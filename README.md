@@ -209,3 +209,28 @@ Version Control | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for
 
 ### 📖ERD
 ![erd](https://github.com/wander0000/Final_project/raw/develop/assets/erd.png)]
+
+<hr/>
+
+## 실행 방법 (내장 DB)
+
+DB를 따로 설치하지 않아도 됩니다. 앱을 실행하면 **내장 MariaDB**(MariaDB4j)가 함께 뜨고, 처음 실행할 때 스키마와 샘플 데이터가 자동으로 들어갑니다.
+
+```bash
+cd boot_mvp
+./gradlew bootRun        # Windows: gradlew.bat bootRun  (또는 IDE에서 BootMvpApplication 실행)
+```
+
+- 필요 조건: **JDK 17**, 인터넷 연결 (영화 포스터·예고편은 TMDB / YouTube 주소를 그대로 사용)
+- 접속: http://localhost:8282/main
+- 테스트 계정: 아이디 `user01` ~ `user05`, 비밀번호는 모두 `1234`
+  (등급·포인트·쿠폰·예매 내역이 서로 다르게 들어 있음. user01 = VIP, user04 = MVP)
+
+### 알아둘 점
+- 데이터는 `boot_mvp/db-data/`에 저장되어 재시작해도 유지됩니다(git에는 올라가지 않음). **DB를 초기 상태로 되돌리려면** 앱을 끄고 이 폴더를 지운 뒤 다시 실행하세요.
+- 내장 DB 포트는 `13307`입니다. 다른 프로그램과 겹치면 `application.properties`의 `mvp.embedded-db.port`와 `spring.datasource.url`의 포트를 함께 바꾸세요.
+- 상영 시간표는 앱이 뜰 때마다 **오늘부터 21일치**가 자동으로 채워집니다(`db/screens.sql`). 그래서 언제 실행해도 예매할 수 있습니다.
+- 영화 데이터는 샘플(`db/data-movies.sql`, 49편)로 고정되어 있습니다. TMDB/KOBIS 실데이터로 갱신하려면 `spring.batch.job.enabled=true`로 기동하세요(약 20분 소요, 기존 영화 데이터를 지우고 다시 받음).
+- 결제는 PortOne(아임포트) **테스트 채널**이라 실제 돈이 나가지 않습니다. 예매 취소는 실제 PortOne 결제 건만 가능합니다(샘플 예매 내역은 취소되지 않음).
+- 스키마(`db/schema.sql`)와 저장 프로시저 `movie_payment_points`, `deleteTicket`, 뷰 `movieinfotb_v`는 원본 DB 덤프가 없어 **코드를 보고 역설계**한 것입니다. 원본과 다를 수 있습니다.
+- 외부 MySQL(예: 팀 공용 DB)을 쓰려면 `mvp.embedded-db.enabled=false`로 두고 `spring.datasource.url`을 그 DB로 바꾸세요.

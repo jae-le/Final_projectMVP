@@ -23,7 +23,8 @@ public class SchedulerConfig {
         this.movieJob = movieJob;
     }
 
-    @Scheduled(cron = "0 02 09 * * ?")  // 매일 09시 05분에 실행
+    // 매일 09시 02분에 실행. mvp.movie-batch.cron=- 로 두면 실행하지 않음 (내장 DB 샘플 데이터를 유지할 때)
+    @Scheduled(cron = "${mvp.movie-batch.cron:0 02 09 * * ?}")
     public void runMovieJob() {
         try {
             JobParameters jobParameters = new JobParametersBuilder()

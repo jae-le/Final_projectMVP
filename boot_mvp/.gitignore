@@ -39,3 +39,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# 내장 DB 데이터
+db-data/
