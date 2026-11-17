@@ -115,12 +115,12 @@ section
 
 .loginWrap 
 {
-  width: 1920px;
+  width: 100%;
   height: fit-content;
 }
 .loginWrap2
 {
-  width: 1920px;
+  width: 100%;
   height: fit-content;
   padding: 12%;
 }

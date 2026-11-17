@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +46,23 @@
             <div id="mainSlider" class="swiper-wrapper">
 				<c:forEach items="${boxOffice}" var="dto">
 					<div class="swiper-slide">
-						<img src="${dto.moviebackimg}" alt="${dto.movienm}">
+						<img src="${dto.moviebackimg}" alt="<c:out value='${dto.movienm}'/>">
+						<!-- 배너 영화 정보 (가운데 강조 슬라이드에서만 줄거리/버튼 노출) -->
+						<div class="bannerInfo">
+							<span class="bannerRank">박스오피스 ${dto.ranking}위</span>
+							<h3 class="bannerTitle"><c:out value="${dto.movienm}"/></h3>
+							<p class="bannerMeta">
+								<span>${dto.openday} 개봉</span>
+								<c:if test="${not empty dto.ratingno}"><span><c:out value="${dto.ratingno}"/></span></c:if>
+								<c:if test="${not empty dto.genre}"><span><c:out value="${fn:replace(dto.genre, ',', ', ')}"/></span></c:if>
+								<c:if test="${dto.times > 0}"><span>${dto.times}분</span></c:if>
+							</p>
+							<p class="bannerIntro"><c:out value="${dto.intro}"/></p>
+							<div class="bannerButtons">
+								<button type="button" class="bannerBtn primary" onclick="location.href='/ticketing/move_ticketing?movieno=${dto.movieno}'">예매하기</button>
+								<button type="button" class="bannerBtn" onclick="location.href='../movie/movieInfo?movieno=${dto.movieno}'">상세보기</button>
+							</div>
+						</div>
 					</div>
 				</c:forEach>
 			</div>

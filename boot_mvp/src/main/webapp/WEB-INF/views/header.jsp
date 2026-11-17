@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <style>
-    header,.subheader,.subadress {display: flex; justify-content: center; align-items: center; flex-direction: column; 	position: fixed; top: 0; width: 100vw; z-index: 9; background: #0F1015;}
-    .headerInner,.headerSubInner, .headeradressInner { height: 90px; display: flex; align-items: center; min-width: 1600px!important; width: 90%!important; justify-content: start;}
+    header,.subheader,.subadress {display: flex; justify-content: center; align-items: center; flex-direction: column; 	position: fixed; top: 0; width: 100%; z-index: 9; background: #0F1015;}
+    .headerInner,.headerSubInner, .headeradressInner { height: 90px; display: flex; align-items: center; min-width: 0 !important; max-width: 1600px; width: 90%!important; justify-content: start;}
     .logo { margin-right: 60px;}
     .menuWrap { display: flex; align-items: center; gap: 0 40px;}
     .menu, .menu a { color: #99A2B9; font-size: 16px; font-weight: 400; cursor:pointer;}

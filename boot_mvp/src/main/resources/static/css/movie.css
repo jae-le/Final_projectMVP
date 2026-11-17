@@ -8,13 +8,13 @@
     --disabled: rgba(153,162,185,0.3);
     --input: rgba(217,217,217,0.1);
     --fs12: 0.6px;
-    --fs14: 0.8vw;
-    --fs16: 1vw;
-    --fs18: 1.35vw;
-    --fs20: 1.4vw;
-    --fs24: 1.45vw;
-    --fs28: 1.5vw;
-    --fs36: 2vw;
+    --fs14: max(12px, 0.8vw);
+    --fs16: max(13px, 1vw);
+    --fs18: max(14px, 1.35vw);
+    --fs20: max(15px, 1.4vw);
+    --fs24: max(17px, 1.45vw);
+    --fs28: max(19px, 1.5vw);
+    --fs36: max(24px, 2vw);
 	--rank: 2.8vw;
 }
 
@@ -40,7 +40,7 @@ section
 
 .movieList
 {
-	min-width: 1600px!important;
+	min-width: 0 !important; max-width: 1600px;
 	width: 90%!important;      
 }
 

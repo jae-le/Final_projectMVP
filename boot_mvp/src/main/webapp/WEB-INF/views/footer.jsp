@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <style>
     footer { display: flex; justify-content: center; align-items: center; }
-    .footerInner { display: flex; min-width: 1600px!important; width: 90%!important;height: 100%; flex-direction: column; padding: 0 0 60px; }
+    .footerInner { display: flex; min-width: 0 !important; max-width: 1600px; width: 90%!important;height: 100%; flex-direction: column; padding: 0 0 60px; }
     .number a{ color: #99A2B9; }
     .time { margin-bottom: 14px; margin-top: 4px; } 
     .time a { font-weight: 600 !important;}

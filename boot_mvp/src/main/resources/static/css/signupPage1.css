@@ -115,13 +115,13 @@ section
 
 .loginWrap 
 {
-  width: 1920px;
+  width: 100%;
   height: fit-content;
 }
 
 .loginWrap2
 {
-  width: 1920px;
+  width: 100%;
   height: fit-content;
   padding: 4.8%;
   overflow: hidden; /* 모든 스크롤을 숨김 */

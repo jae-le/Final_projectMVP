@@ -43,7 +43,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-width: 1600px !important;
+		min-width: 0 !important; max-width: 1600px;
 		width: 90% !important;
 		justify-content: start;
 		position: fixed;
@@ -58,7 +58,7 @@
 	{
 	    display: flex;
 	    align-items: center;
-	    min-width: 1600px !important;
+	    min-width: 0 !important; max-width: 1600px;
 	    width: 90% !important;
 	    justify-content: start;
 		z-index: 9;
